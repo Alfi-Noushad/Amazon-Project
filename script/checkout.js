@@ -4,13 +4,13 @@ let cartSummaryHTML = "";
 
 cart.forEach((cartItem) => {
   
-  const productIds = carItem.productId;
+  const productIds = cartItem.productId;
   
-  let matchingProducts;
+  let matchingProduct;
   
-  product.forEach((products) => {
-    if(products.id === productIds) {
-      matchingProducts = product;
+  products.forEach((product) => {
+    if(product.id === productIds) {
+      matchingProduct = product;
     }
   });
   
@@ -23,14 +23,14 @@ cart.forEach((cartItem) => {
 
     <div class="cart-item-details-grid">
       <img class="product-image"
-        src="${matchingProducts.image}">
+        src="${matchingProduct.image}">
 
       <div class="cart-item-details">
         <div class="product-name">
-          ${matchingProducts.name}
+          ${matchingProduct.name}
         </div>
         <div class="product-price">
-          $${matchingProducts.priceCents / 100}
+          $${matchingProduct.priceCents / 100}
         </div>
         <div class="product-quantity">
           <span>
@@ -48,5 +48,3 @@ cart.forEach((cartItem) => {
 });
 
 document.querySelector(".order-summary").innerHTML = cartSummaryHTML;
-
-
